@@ -1,4 +1,10 @@
-<h2 class="text-center"> Carro de compras</h2>
+<h2 class="text-center"> Catalogo de productos app</h2>
 
-    <app-catalog [products]="products" />
-
+    <app-catalog [products]="products" (productEventEmitter) = "onAddCart($event)"/>
+   
+    @if (items.length >0 ) {
+        
+        <cart [items]="items" (idProduct)="onDeleteCart($event)"/>
+    }@else {
+        <div class="alert alert-warning">No hay elementos en el carro</div> 
+    }
